@@ -1,0 +1,57 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                    <view class="weui-cells__title"></view>
+                    <view class="weui-cells weui-cells_after-title">
+                        <view class="weui-cell weui-cell_input weui-cell_warn ">
+                            <view class="weui-cell__bd">税前工资(元):</view>
+                            <view class="weui-cell__ft">
+                                <input class="weui-input" placeholder="请输入税前每月工资" />
+                            </view>
+                        </view>
+                    </view>
+                    <view class="page__bd">
+                        <view class="weui-form-preview">
+                            <view class="weui-form-preview__bd">
+                                <view class="weui-form-preview__item">
+                                    <view class="weui-form-preview__label">五险一金</view>
+                                    <view class="weui-form-preview__value">上海标准 600.29</view>
+                                </view>
+                            </view>
+                            <view class="weui-form-preview__bd">
+                                <view class="weui-form-preview__item">
+                                    <view class="weui-form-preview__label">专项扣除</view>
+                                    <view class="weui-form-preview__value">0项可抵扣 0</view>
+                                </view>
+                                <view class="page__bd">
+                                    <view class="weui-grids">
+                                        <block >
+                                            <navigator url="../index/index" class="weui-grid" hover-class="weui-grid_active">
+                                                <image class="weui-grid__icon" src="../../dist/example/images/icon_tabbar.png" />
+                                                <view class="weui-grid__label">
+                        
+                                                </view>
+                                            </navigator>
+                                        </block>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <!-- 文本框二 -->
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}"></view>
+            </view>
+        </view>
+    </view>
+</view>

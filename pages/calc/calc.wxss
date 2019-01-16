@@ -1,0 +1,26 @@
+.placeholder{
+    margin: 5px;
+    padding: 0 10px;
+    text-align: left;
+    background-color: #EBEBEB;
+    height: 2.3em;
+    line-height: 2.3em;
+    color: #cfcfcf;
+}
+
+.inputHead{
+    margin: 5px;
+    padding: 0 10px;
+    text-align: center;
+    height: 2.3em;
+    line-height: 2.3em;
+    color: #cfcfcf;
+}
+.inputMargin{
+    margin: 4px;
+    height: 2.2em;
+    line-height: 2.2em;
+    color: #1AAD19;
+    
+ 
+}

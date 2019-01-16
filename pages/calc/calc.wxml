@@ -1,0 +1,45 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="weui-flex">
+            <view>
+                <view class="inputHead">专项扣除(元)</view>
+            </view>
+            <view class="weui-cell_input">
+                <input class="weui-input inputMargin" type="type" value='{{deduction}}' readonly="readonly" />
+            </view>
+        </view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+        <view class="weui-flex">
+            <view class="weui-flex__item">
+                <view class="placeholder">请选择符合标准的扣除专项</view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <view>
+            <checkbox-group bindchange="checkboxChange">
+                <label class="weui-cell weui-check__label" wx:for-index="idx" wx:for="{{checkboxItems}}" wx:key="box">
+                    <checkbox class="weui-check" data-amount='{{item.amount}}' value="{{item.value}}" checked="{{item.checked}}" />
+                    <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                        <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                        <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <view>{{item.name}}</view>
+                        <view style="font-size: 13px;color: #888888;">{{item.summary}}</view>
+                    </view>
+                    <view>{{item.amount}}</view>
+                </label>
+            </checkbox-group>
+        </view>
+    </view>
+    <label class="weui-agree" for="weuiAgree">
+        <view class="weui-agree__text">
+            <view>注:执业资格教育和大病医疗属于按年扣除的附件专项,此处暂时不计算</view>
+        </view>
+    </label>
+    <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" bindtap="bindtapFix">确定</button>
+    </view>
+</view>
