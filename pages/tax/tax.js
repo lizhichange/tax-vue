@@ -112,10 +112,6 @@ Page({
         }
 
         var index = data.index;
-
-
-
-
         var code;
         for (var i = 0, lenI = data.array.length; i < lenI; ++i) {
             if (i == index) {
