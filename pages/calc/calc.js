@@ -42,9 +42,19 @@ Page({
         var that = this;
         var data = that.__data__;
         var deduction = JSON.stringify(data.deduction)
-        wx.navigateTo({
-            url: '../tax/tax?deduction=' + deduction
+        console.log('deduction', deduction)
+        var pages = getCurrentPages();
+        var currPage = pages[pages.length - 1];   //当前页面
+        var prevPage = pages[pages.length - 2];  //上一个页面
+
+        //直接调用上一个页面对象的setData()方法，把数据存到上一个页面中去
+        prevPage.setData({
+            deduction: deduction
         });
+        wx.navigateBack({
+            delta: 1
+        });
+
     },
 
     checkboxChange: function (e) {
