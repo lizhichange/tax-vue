@@ -18,6 +18,7 @@ Page({
 
         regionCode: "310000",
         rate: 0,
+        //速算扣除数
         quickDeduction: 0,
         socialAmount: 0,
         provident: 0,
@@ -87,22 +88,42 @@ Page({
             }
         }
         console.log(amount, item);
-        //如果不在这个区间，找不到对应的比例 按照原来比例交
+        //如果不等于空，找到了对应的比例  
         if (item != null && item != 'undefined') {
             var personalIncomeTax = ((amount * item.rate) / 100 - item.quickDeduction).toFixed(2);
             console.log("纳税额:", personalIncomeTax);
             this.setData({
                 rate: item.rate,
+                //税后工资
                 afterTax: data.preTax - personalIncomeTax - pension - medical - unemployment - provident,
+                //个人应纳税额
                 payable: personalIncomeTax,
+                //速算扣除数
                 quickDeduction: item.quickDeduction,
+                //社保
                 socialAmount: socialAmount,
+                //公积金
                 provident: provident,
             });
         } else {
-
-
-
+            //如果找不到
+            //税前工资减去-社保-公积金-减去免征额
+            var amount = data.preTax - socialAmount - provident - data.exemption;
+            var personalIncomeTax = ((amount * 0) / 100 - 0).toFixed(2);
+            console.log("纳税额:", personalIncomeTax);
+            this.setData({
+                rate: 0,
+                //税后工资
+                afterTax: data.preTax - personalIncomeTax - pension - medical - unemployment - provident,
+                //个人应纳税额
+                payable: personalIncomeTax,
+                //速算扣除数
+                quickDeduction: 0,
+                //社保
+                socialAmount: socialAmount,
+                //公积金
+                provident: provident,
+            });
         }
     }
 });
