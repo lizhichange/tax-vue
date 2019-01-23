@@ -119,7 +119,7 @@ Page({
                 break;
             }
         }
-        console.log('公积金选择比例:', code)
+
         wx.navigateTo({
             url: '../preview/preview?preTax=' + data.preTax + '&deduction=' + data.deduction + '&proportion=' + code
         });
