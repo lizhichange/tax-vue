@@ -15,19 +15,19 @@
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">社保基数</view>
-                    <view class="weui-form-preview__value">20000</view>
+                    <view class="weui-form-preview__value">{{preTax}}</view>
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">社保金额</view>
-                    <view class="weui-form-preview__value">2100</view>
+                    <view class="weui-form-preview__value">{{socialAmount}}</view>
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">公积金基数</view>
-                    <view class="weui-form-preview__value">20000</view>
+                    <view class="weui-form-preview__value">{{preTax}}</view>
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">公积金缴纳金额</view>
-                    <view class="weui-form-preview__value">20000</view>
+                    <view class="weui-form-preview__value">{{provident}}</view>
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">起征点</view>
@@ -35,7 +35,7 @@
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">附加扣除额</view>
-                    <view class="weui-form-preview__value">20000</view>
+                    <view class="weui-form-preview__value">{{deduction}}</view>
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">应纳税额</view>
@@ -47,7 +47,7 @@
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">税率</view>
-                    <view class="weui-form-preview__value">20000</view>
+                    <view class="weui-form-preview__value">{{rate}}</view>
                 </view>
                 <view class="weui-form-preview__item weui-cell_warn">
                     <view class="weui-form-preview__label weui-cell_warn">税后工资</view>

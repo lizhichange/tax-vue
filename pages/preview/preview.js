@@ -17,11 +17,14 @@ Page({
         exemption: 5000,
 
         regionCode: "310000",
-
+        rate: 0,
         quickDeduction: 0,
+        socialAmount: 0,
+        provident: 0,
         //税率表
         monthlyTaxRate: [
-            { "level": 1, "rate": 3, "quickDeduction": 0, "monthly": 0, 'range': "0-3000" },
+            { "level": 0, "rate": 0, "quickDeduction": 0, "monthly": 0, 'range': "0-0" },
+            { "level": 1, "rate": 3, "quickDeduction": 0, "monthly": 1, 'range': "1-3000" },
             { "level": 2, "rate": 10, "quickDeduction": 210, "monthly": 3001, 'range': "3001-12000" },
             { "level": 3, "rate": 20, "quickDeduction": 1410, "monthly": 12001, 'range': "12001-25000" },
             { "level": 4, "rate": 25, "quickDeduction": 2660, "monthly": 25001, 'range': "25001-35000" },
@@ -56,17 +59,16 @@ Page({
         }
         //养老保险金：
         var pension = (data.preTax * insuranceRate.pension) / 100;
-
-        // 医疗保险金：	
+        //医疗保险金：	
         var medical = (data.preTax * insuranceRate.medical) / 100;
         //失业保险金：	
         var unemployment = (data.preTax * insuranceRate.unemployment) / 100;
-
+        //社保金额
+        var socialAmount = pension + medical + unemployment;
         //	基本住房公积金：
         var provident = (data.preTax * insuranceRate.provident) / 100;
-
-        var amount = data.preTax - pension - medical - unemployment - provident - data.exemption - data.deduction;
-
+        //税前工资减去 社保减去公积金 -减去免征额-专项扣除
+        var amount = data.preTax - socialAmount - provident - data.exemption - data.deduction;
         console.log(
             '养老保险金：',
             pension,
@@ -84,17 +86,22 @@ Page({
                 break;
             }
         }
-
         console.log(amount, item);
+        //如果不在这个区间，找不到对应的比例 按照原来比例交
         if (item != null && item != 'undefined') {
-            var personalIncomeTax = (amount * item.rate) / 100 - item.quickDeduction;
+            var personalIncomeTax = ((amount * item.rate) / 100 - item.quickDeduction).toFixed(2);
             console.log("纳税额:", personalIncomeTax);
             this.setData({
+                rate: item.rate,
                 afterTax: data.preTax - personalIncomeTax - pension - medical - unemployment - provident,
                 payable: personalIncomeTax,
-                quickDeduction: item.quickDeduction
+                quickDeduction: item.quickDeduction,
+                socialAmount: socialAmount,
+                provident: provident,
             });
         } else {
+
+
 
         }
     }

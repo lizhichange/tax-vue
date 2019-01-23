@@ -20,7 +20,7 @@ Page({
         //专项扣除
         deduction: 0.00,
         //税前收入
-        preTax: 20000
+        preTax: 0.00
     },
 
     onLoad: function (options) {
