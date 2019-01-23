@@ -8,7 +8,7 @@
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
-    <button bindtap='renderBavbar'>跳转到bavbar</button>
+    <!-- <button bindtap='renderBavbar'>跳转到bavbar</button> -->
     <button bindtap='renderTax'>tax</button>
   </view>
   <view class="usermotto">
