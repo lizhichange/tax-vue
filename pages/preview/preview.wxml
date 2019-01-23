@@ -51,7 +51,7 @@
                 </view>
                 <view class="weui-form-preview__item weui-cell_warn">
                     <view class="weui-form-preview__label weui-cell_warn">税后工资</view>
-                    <view class="weui-form-preview__value weui-cell_warn">20000</view>
+                    <view class="weui-form-preview__value weui-cell_warn">{{afterTax}}</view>
                 </view>
             </view>
         </view>
