@@ -31,7 +31,7 @@
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">起征点</view>
-                    <view class="weui-form-preview__value">20000</view>
+                    <view class="weui-form-preview__value">{{exemption}}</view>
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">附加扣除额</view>
@@ -39,11 +39,11 @@
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">应纳税额</view>
-                    <view class="weui-form-preview__value">20000</view>
+                    <view class="weui-form-preview__value">{{payable}}</view>
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">速算扣除数</view>
-                    <view class="weui-form-preview__value">20000</view>
+                    <view class="weui-form-preview__value">{{quickDeduction}}</view>
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">税率</view>

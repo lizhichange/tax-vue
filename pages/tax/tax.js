@@ -16,10 +16,11 @@ Page({
         ],
         index: 0,
         region: ["上海市", "上海市"],
+        regionCode: '310000',
         //专项扣除
         deduction: 0.00,
         //税前收入
-        preTax: 0.00
+        preTax: 20000
     },
 
     onLoad: function (options) {
@@ -59,6 +60,7 @@ Page({
                             var status = res.data.status;
                             if (status === 'OK') {
                                 var result = res.data.result;
+                                console.log(result)
                                 var city = result.addressComponent.city;
                                 var province = result.addressComponent.province;
                                 that.setData({
@@ -98,7 +100,6 @@ Page({
     },
     //计算跳转结果页面
     previewTips: function (e) {
-
         var that = this;
         var data = that.__data__;
         console.log(data.preTax);
@@ -121,13 +122,16 @@ Page({
         }
 
         wx.navigateTo({
-            url: '../preview/preview?preTax=' + data.preTax + '&deduction=' + data.deduction + '&proportion=' + code
+            url: '../preview/preview?preTax=' + data.preTax + '&deduction=' + data.deduction + '&proportion=' + code + '&regionCode=' + data.regionCode
         });
     },
     // 选择省市区函数
     changeRegin(e) {
         console.log('code', e.detail.code);
-        this.setData({ region: e.detail.value });
+        this.setData({
+            region: e.detail.value,
+            regionCode: e.detail.code[0]
+        });
     },
 
     open: function () {
