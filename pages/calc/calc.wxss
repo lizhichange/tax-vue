@@ -24,3 +24,6 @@
     
  
 }
+page{
+    background-color: #FFFFFF;
+}

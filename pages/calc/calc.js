@@ -1,5 +1,4 @@
 
-
 Page({
     data: {
         checkboxItems: [
@@ -46,7 +45,6 @@ Page({
         var pages = getCurrentPages();
         var currPage = pages[pages.length - 1];   //当前页面
         var prevPage = pages[pages.length - 2];  //上一个页面
-
         //直接调用上一个页面对象的setData()方法，把数据存到上一个页面中去
         prevPage.setData({
             deduction: deduction
@@ -77,4 +75,21 @@ Page({
             deduction: totalAmount
         });
     }
+    ,
+    openConfirm: function () {
+        wx.showModal({
+            title: '弹窗标题',
+            content: '弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内',
+            confirmText: "主操作",
+            cancelText: "辅助操作",
+            success: function (res) {
+                console.log(res);
+                if (res.confirm) {
+                    console.log('用户点击主操作')
+                } else {
+                    console.log('用户点击辅助操作')
+                }
+            }
+        });
+    },
 });
