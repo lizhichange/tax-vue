@@ -19,10 +19,7 @@
     <view class="weui-cells weui-cells_after-title">
         <view>
             <checkbox-group bindchange="checkboxChange">
-                <!-- {{fbphotoFirst==''?'uploadfbphotoFirst':''}} -->
-                <label class="weui-cell weui-check__label" wx:for-index="idx" wx:for="{{checkboxItems}}" wx:key="box"
-                bindtap="{{idx ===2 || idx ===3 || idx ===4  ?  'openConfirm':  ''}}" >
- 
+                <label class="weui-cell weui-check__label" wx:for-index="idx" wx:for="{{checkboxItems}}" wx:key="box" data-index="{{idx}}" bindtap="{{idx ===2 || idx ===3 || idx ===4  ?  'openConfirm':  ''}}">
                     <checkbox class="weui-check" data-amount='{{item.amount}}' value="{{item.value}}" checked="{{item.checked}}" />
                     <view class="weui-cell__hd weui-check__hd_in-checkbox">
                         <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>

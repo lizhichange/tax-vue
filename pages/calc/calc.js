@@ -9,19 +9,19 @@ Page({
             },
             {
                 name: '首套房贷利息', summary: '本人或配偶首套房贷款利息(商业贷款),夫妻择一',
-                value: '1', amount: 1000.00
+                value: '1', amount: 1000.00, title: '', desc: ''
             },
             {
                 name: '子女教育', summary: '包含学前教育和学历教育,夫妻择一',
-                value: '2', amount: 0.00
+                value: '2', amount: 0.00, title: '填写子女数量', desc: '',
             },
             {
                 name: '租房租金', summary: '同城,夫妻择一;不同城,分别抵扣',
-                value: '3', amount: 0.00
+                value: '3', amount: 0.00, title: '',
             },
             {
                 name: '赡养老人', summary: '60岁以上父母及祖辈',
-                value: '4', amount: 0.00
+                value: '4', amount: 0.00, title: '填写赡养老人支出', desc: '独生子女按照每月2000元标准定额扣除;非独生子女则自行协商平摊扣除金额',
             }
 
         ],
@@ -41,7 +41,6 @@ Page({
         var that = this;
         var data = that.__data__;
         var deduction = JSON.stringify(data.deduction)
-        console.log('deduction', deduction)
         var pages = getCurrentPages();
         var currPage = pages[pages.length - 1];   //当前页面
         var prevPage = pages[pages.length - 2];  //上一个页面
@@ -76,9 +75,21 @@ Page({
         });
     }
     ,
-    openConfirm: function () {
+    openConfirm: function (e) {
+        let index = e.currentTarget.dataset.index
+
+        var checkboxItems = this.data.checkboxItems;
+        var item;
+        for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
+            if (checkboxItems[i].value == index) {
+                item = checkboxItems[i];
+                break;
+            }
+        }
+
+
         wx.showModal({
-            title: '弹窗标题',
+            title: item.title,
             content: '弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内',
             confirmText: "主操作",
             cancelText: "辅助操作",

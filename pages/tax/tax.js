@@ -35,7 +35,6 @@ Page({
         wx.getLocation({
             type: 'wgs84',
             success(res) {
-                console.log(res);
                 const latitude = res.latitude;
                 const longitude = res.longitude;
                 const speed = res.speed;
@@ -60,7 +59,6 @@ Page({
                             var status = res.data.status;
                             if (status === 'OK') {
                                 var result = res.data.result;
-                                console.log(result)
                                 var city = result.addressComponent.city;
                                 var province = result.addressComponent.province;
                                 that.setData({
