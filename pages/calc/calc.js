@@ -14,7 +14,7 @@ Page({
             },
             {
                 name: '子女教育', summary: '包含学前教育和学历教育,夫妻择一',
-                value: '2', amount: 1000.00
+                value: '2', amount: 0.00
             },
             {
                 name: '租房租金', summary: '同城,夫妻择一;不同城,分别抵扣',

@@ -15,12 +15,15 @@ Page({
         deduction: 0.00,
         //免征额
         exemption: 5000,
-
+        //区域code
         regionCode: "310000",
+        //税率
         rate: 0,
         //速算扣除数
         quickDeduction: 0,
+        //三险
         socialAmount: 0,
+        //公积金
         provident: 0,
         //税率表
         monthlyTaxRate: [
