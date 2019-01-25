@@ -38,8 +38,51 @@ Page({
         ],
         //五险一金
         insuranceRate: [
-            { "regionCode": "310000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 7, 'desc': '上海' },
             { "regionCode": "110000", "pension": 8, "medical": 2, "unemployment": 0.2, 'provident': 12, 'desc': '北京' },
+            { "regionCode": "120000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 11, 'desc': '天津' },
+            { "regionCode": "140000", "pension": 8, "medical": 2, "unemployment": 0.3, 'provident': 6, 'desc': '太原' },
+            { "regionCode": "150000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 6, 'desc': '呼和浩特' },
+            { "regionCode": "130000", "pension": 8, "medical": 2, "unemployment": 0.3, 'provident': 10, 'desc': '石家庄' },
+
+
+            { "regionCode": "310000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 7, 'desc': '上海' },
+            { "regionCode": "320000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 8, 'desc': '南京' },
+            { "regionCode": "330000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 12, 'desc': '杭州' },
+            { "regionCode": "330000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 8, 'desc': '宁波' },
+            { "regionCode": "370000", "pension": 8, "medical": 2, "unemployment": 0.3, 'provident': 7, 'desc': '济南' },
+            { "regionCode": "320000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 8, 'desc': '苏州' },
+            { "regionCode": "350000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 12, 'desc': '福州' },
+            { "regionCode": "350000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 12, 'desc': '厦门' },
+            { "regionCode": "340000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 8, 'desc': '合肥' },
+            { "regionCode": "370000", "pension": 8, "medical": 2, "unemployment": 0.3, 'provident': 5, 'desc': '青岛' },
+
+            { "regionCode": "420000", "pension": 8, "medical": 2, "unemployment": 0.3, 'provident': 8, 'desc': '武汉' },
+            { "regionCode": "360000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 12, 'desc': '南昌' },
+            { "regionCode": "430000", "pension": 8, "medical": 2, "unemployment": 0.3, 'provident': 8, 'desc': '长沙' },
+            { "regionCode": "410000", "pension": 8, "medical": 2, "unemployment": 0.3, 'provident': 10, 'desc': '郑州' },
+
+
+            { "regionCode": "440000", "pension": 8, "medical": 2, "unemployment": 0.2, 'provident': 5, 'desc': '广州' },
+            { "regionCode": "440000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 5, 'desc': '深圳' },
+            { "regionCode": "450000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 12, 'desc': '南宁' },
+            { "regionCode": "460000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 10, 'desc': '海口' },
+            { "regionCode": "440000", "pension": 8, "medical": 2, "unemployment": 0.2, 'provident': 5, 'desc': '珠海' },
+            { "regionCode": "440000", "pension": 8, "medical": 1.5, "unemployment": 0.2, 'provident': 5, 'desc': '佛山' },
+            { "regionCode": "440000", "pension": 8, "medical": 0.5, "unemployment": 0.2, 'provident': 5, 'desc': '东莞' },
+
+
+            { "regionCode": "210000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 12, 'desc': '沈阳' },
+            { "regionCode": "210000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 15, 'desc': '大连' },
+
+            { "regionCode": "220000", "pension": 8, "medical": 2, "unemployment": 0.3, 'provident': 7, 'desc': '长春' },
+            { "regionCode": "230000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 8, 'desc': '哈尔滨' },
+
+
+            { "regionCode": "610000", "pension": 8, "medical": 2, "unemployment": 0.3, 'provident': 5, 'desc': '西安' },
+
+            { "regionCode": "640000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 12, 'desc': '银川' },
+
+            { "regionCode": "620000", "pension": 8, "medical": 2, "unemployment": 0.3, 'provident': 7, 'desc': '兰州' },
         ]
     },
     onLoad: function (e) {
