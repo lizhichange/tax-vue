@@ -1,3 +1,20 @@
+
+let isTest = true; //以后官方提供了方法可以修改这个就好了。
+
+
+const testApi = {
+  api: {
+    serviceUrl: 'https://test.xxx.com/xxx'
+  }
+}
+
+const prodApi = {
+  api: {
+    serviceUrl: 'https://product.xxx.com/xxxx'
+  }
+}
+
+let api = isTest ? testApi : prodApi;
 //app.js
 App({
   onLaunch: function () {
@@ -28,13 +45,13 @@ App({
                 this.userInfoReadyCallback(res)
               }
             }
-          })
+          });
         }
       }
     })
   },
   globalData: {
     userInfo: null,
-    serviceUrl: '',
+    serviceUrl: api,
   }
 })

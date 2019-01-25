@@ -11,7 +11,7 @@ Page({
         afterTax: 0.00,
         //个人应纳税额
         payable: 0,
-        //专项扣除
+        //专项扣除 
         deduction: 0.00,
         //免征额
         exemption: 5000,
@@ -83,6 +83,21 @@ Page({
             { "regionCode": "640000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 12, 'desc': '银川' },
 
             { "regionCode": "620000", "pension": 8, "medical": 2, "unemployment": 0.3, 'provident': 7, 'desc': '兰州' },
+
+            { "regionCode": "630000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 6, 'desc': '西宁' },
+
+            { "regionCode": "650000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 10, 'desc': '乌鲁木齐' },
+
+            { "regionCode": "500000", "pension": 8, "medical": 2, "unemployment": 0.5, 'provident': 7, 'desc': '重庆' },
+            { "regionCode": "510000", "pension": 8, "medical": 2, "unemployment": 0.4, 'provident': 6, 'desc': '成都' },
+
+
+            { "regionCode": "530000", "pension": 8, "medical": 2, "unemployment": 0.3, 'provident': 10, 'desc': '昆明' },
+
+            { "regionCode": "520000", "pension": 8, "medical": 2, "unemployment": 0.3, 'provident': 6, 'desc': '贵阳' },
+
+
+
         ]
     },
     onLoad: function (e) {
