@@ -76,15 +76,17 @@ Page({
     openConfirm: function (e) {
         let index = e.currentTarget.dataset.index;
         const query = wx.createSelectorQuery();
-
-        query.select('#box-' + index + '').boundingClientRect().exec(function (res) {
-            var check = res[0].dataset.check;
-            if (check) {
-                console.log(111111);
-                return;
-            }
-        });
-
+        let box;
+        query.select('#box-' + index + '').boundingClientRect({
+            suc: function (rects) {
+                box = rects.dataset.check;
+            },
+            box: box
+        }).exec();
+        console.log(box);
+        if (box) {
+            return;
+        }
         var checkboxItems = this.data.checkboxItems;
         var item;
         for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
