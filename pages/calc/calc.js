@@ -75,16 +75,12 @@ Page({
 
     openConfirm: function (e) {
         let index = e.currentTarget.dataset.index;
-        const query = wx.createSelectorQuery();
-        let box;
-        query.select('#box-' + index + '').boundingClientRect({
-            suc: function (rects) {
-                box = rects.dataset.check;
-            },
-            box: box
-        }).exec();
-        console.log(box);
-        if (box) {
+        let check = e.currentTarget.dataset.check;
+        wx.createSelectorQuery().select('#box-' + index + '').boundingClientRect(
+            function (rects) {
+            }
+        ).exec();
+        if (check) {
             return;
         }
         var checkboxItems = this.data.checkboxItems;
