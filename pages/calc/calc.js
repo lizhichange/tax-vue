@@ -99,7 +99,6 @@ Page({
             confirmText: "主操作",
             cancelText: "辅助操作",
             success: function (res) {
-
                 if (res.confirm) {
                     console.log('')
                 } else {
