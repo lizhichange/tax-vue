@@ -17,7 +17,7 @@ Page({
             },
             {
                 name: '租房租金', summary: '同城,夫妻择一;不同城,分别抵扣',
-                value: '3', amount: 0.00, title: '',
+                value: '3', amount: 0.00, title: '请选择城市类别',
             },
             {
                 name: '赡养老人', summary: '60岁以上父母及祖辈',
@@ -87,10 +87,10 @@ Page({
             }
         }
 
-
         wx.showModal({
             title: item.title,
-            content: '弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内',
+            content: '',
+            input:'输入框默认值',
             confirmText: "主操作",
             cancelText: "辅助操作",
             success: function (res) {

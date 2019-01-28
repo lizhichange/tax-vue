@@ -124,9 +124,10 @@ Page({
         //医疗保险金：	
         var medical = (data.preTax * insuranceRate.medical) / 100;
         //失业保险金：	
-        var unemployment = (data.preTax * insuranceRate.unemployment) / 100;
+        var unemployment = ((data.preTax * insuranceRate.unemployment) / 100);
         //社保金额
-        var socialAmount = pension + medical + unemployment;
+        console.log("pension:", pension, "medical:", medical, 'unemployment:', unemployment);
+        var socialAmount = (pension + medical + unemployment).toFixed(2);
         //	基本住房公积金：
         var provident = (data.preTax * insuranceRate.provident) / 100;
         //税前工资减去 社保减去公积金 -减去免征额-专项扣除
@@ -156,7 +157,7 @@ Page({
             this.setData({
                 rate: item.rate,
                 //税后工资
-                afterTax: data.preTax - personalIncomeTax - pension - medical - unemployment - provident,
+                afterTax: (data.preTax - personalIncomeTax - pension - medical - unemployment - provident).toFixed(2),
                 //个人应纳税额
                 payable: personalIncomeTax,
                 //速算扣除数
@@ -175,7 +176,7 @@ Page({
             this.setData({
                 rate: 0,
                 //税后工资
-                afterTax: data.preTax - personalIncomeTax - pension - medical - unemployment - provident,
+                afterTax: (data.preTax - personalIncomeTax - pension - medical - unemployment - provident).toFixed(2),
                 //个人应纳税额
                 payable: personalIncomeTax,
                 //速算扣除数
