@@ -55,7 +55,6 @@ Page({
     },
 
     checkboxChange: function (e) {
-        console.log('checkbox发生change事件，携带value值为：', e, e.detail.value);
         var checkboxItems = this.data.checkboxItems, values = e.detail.value;
         var totalAmount = 0;
         for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
@@ -68,15 +67,23 @@ Page({
                 }
             }
         }
-        console.log(totalAmount);
         this.setData({
             checkboxItems: checkboxItems,
             deduction: totalAmount
         });
-    }
-    ,
+    },
+
     openConfirm: function (e) {
-        let index = e.currentTarget.dataset.index
+        let index = e.currentTarget.dataset.index;
+        const query = wx.createSelectorQuery();
+
+        query.select('#box-' + index + '').boundingClientRect().exec(function (res) {
+            var check = res[0].dataset.check;
+            if (check) {
+                console.log(111111);
+                return;
+            }
+        });
 
         var checkboxItems = this.data.checkboxItems;
         var item;
@@ -90,17 +97,18 @@ Page({
         wx.showModal({
             title: item.title,
             content: '',
-            input:'输入框默认值',
+            input: '输入框默认值',
             confirmText: "主操作",
             cancelText: "辅助操作",
             success: function (res) {
-                console.log(res);
+
                 if (res.confirm) {
-                    console.log('用户点击主操作')
+                    console.log('')
                 } else {
-                    console.log('用户点击辅助操作')
+                    console.log('')
                 }
             }
         });
+
     },
 });
