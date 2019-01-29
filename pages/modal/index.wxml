@@ -5,6 +5,7 @@
     <i-button bind:click="handleOpen4">纵向按钮，自定义颜色及图标</i-button>
     <i-button bind:click="handleOpen5">异步操作</i-button>
 </view>
+
 <i-modal title="{{title}}" visible="{{ visible1 }}" bind:ok="handleClose1" bind:cancel="handleClose1">
     <view>
         <i-radio-group current="{{current}}" bindchange="handleFruitChange">
@@ -12,6 +13,8 @@
         </i-radio-group>
     </view>
 </i-modal>
+
+
 <i-modal title="{{title1}}" visible="{{ visible2 }}" bind:ok="handleClose2" bind:cancel="handleClose2">
     <view>
         <block wx:if="{{ switch1 }}">

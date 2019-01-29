@@ -1,6 +1,8 @@
+const { $Message } = require('../../dist/base/index');
 
 Page({
     data: {
+        visible1: false,
         checkboxItems: [
             {
                 name: '继续教育', summary: '学历教育',
@@ -108,4 +110,18 @@ Page({
         });
 
     },
+
+
+    handleOpen1() {
+        this.setData({
+            visible1: true
+        });
+    },
+
+    handleClose1() {
+        this.setData({
+            visible1: false
+        });
+    },
+
 });

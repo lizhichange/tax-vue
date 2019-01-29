@@ -3,7 +3,6 @@ const { $Message } = require('../../dist/base/index');
 Page({
     data: {
         value1: 1,
-
         fruit: [{
             id: 1,
             name: '省会、直辖市、计划单列市',
