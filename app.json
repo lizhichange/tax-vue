@@ -5,8 +5,9 @@
     "pages/navbar/navbar",
     "pages/tax/tax",
     "pages/calc/calc",
-    "pages/preview/preview"
-
+    "pages/preview/preview",
+    "pages/modal/index",
+    "pages/radio/index"
   ],
   "permission": {
     "scope.userLocation": {
