@@ -2,6 +2,7 @@ const { $Message } = require('../../dist/base/index');
 
 Page({
     data: {
+        value1: 1,
 
         fruit: [{
             id: 1,
@@ -13,17 +14,28 @@ Page({
             id: 3,
             name: '人口小于100万城市'
         }],
-        current: '苹果',
+        current: '人口大于100万城市',
         position: 'left',
         animal: '熊猫',
         checked: false,
-        disabled: false,
+        switch1: true,
 
+        onChange(event) {
+            const detail = event.detail;
+            this.setData({
+                'switch1': detail.value
+            })
+        },
+
+        disabled: false,
+        title: '请选择城市类别',
+        title1: '填写赡养老人支出',
         visible1: false,
         visible2: false,
         visible3: false,
         visible4: false,
         visible5: false,
+        visible7: false,
         actions3: [
             {
                 name: '现金支付',
@@ -85,6 +97,18 @@ Page({
             visible2: false
         });
     },
+    handleOpen7() {
+        this.setData({
+            visible7: true
+        });
+    },
+
+    handleClose7() {
+        this.setData({
+            visible7: false
+        });
+    },
+
 
     handleOpen3() {
         this.setData({
@@ -156,6 +180,7 @@ Page({
     ,
 
     handleFruitChange({ detail = {} }) {
+        console.log(detail);
         this.setData({
             current: detail.value
         });
