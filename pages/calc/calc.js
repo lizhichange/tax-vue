@@ -2,12 +2,12 @@ const { $Message } = require('../../dist/base/index');
 
 Page({
     data: {
-        visible1: false,
+
+
         checkboxItems: [
             {
                 name: '继续教育', summary: '学历教育',
                 value: '0', amount: 400.00,
-                // checked: true,
             },
             {
                 name: '首套房贷利息', summary: '本人或配偶首套房贷款利息(商业贷款),夫妻择一',
@@ -28,16 +28,36 @@ Page({
 
         ],
         isAgree: false,
-        deduction: 0.00
-        ,
-        list: [
-            {
-                id: 'feedback',
-                name: '操作反馈',
-                open: false,
-                pages: ['actionsheet', 'dialog', 'msg', 'picker', 'toast']
-            }
-        ]
+        deduction: 0.00,
+
+
+        fruit: [{
+            id: 1,
+            name: '省会、直辖市、计划单列市',
+        }, {
+            id: 2,
+            name: '人口大于100万城市'
+        }, {
+            id: 3,
+            name: '人口小于100万城市'
+        }],
+        current: '',
+        position: 'left',
+        checked: false,
+        switch3: true,
+        onChange(event) {
+            const detail = event.detail;
+            this.setData({
+                'switch3': detail.value
+            })
+        },
+        disabled: false,
+        title2: '填写子女数量',
+        title3: '请选择城市类别',
+        title4: '填写赡养老人支出',
+        visible2: false,
+        visible3: false,
+        visible4: false,
     },
     bindtapFix: function () {
         var that = this;
@@ -78,10 +98,6 @@ Page({
     openConfirm: function (e) {
         let index = e.currentTarget.dataset.index;
         let check = e.currentTarget.dataset.check;
-        wx.createSelectorQuery().select('#box-' + index + '').boundingClientRect(
-            function (rects) {
-            }
-        ).exec();
         if (check) {
             return;
         }
@@ -93,35 +109,94 @@ Page({
                 break;
             }
         }
-
-        wx.showModal({
-            title: item.title,
-            content: '',
-            input: '输入框默认值',
-            confirmText: "主操作",
-            cancelText: "辅助操作",
-            success: function (res) {
-                if (res.confirm) {
-                    console.log('')
-                } else {
-                    console.log('')
-                }
-            }
-        });
-
     },
 
 
-    handleOpen1() {
+    handleOpen2(e) {
+        let index = e.currentTarget.dataset.index;
+        let check = e.currentTarget.dataset.check;
+        if (check) {
+            return;
+        }
+
         this.setData({
-            visible1: true
+            visible2: true
         });
     },
 
-    handleClose1() {
+    handleClose2() {
         this.setData({
-            visible1: false
+            visible2: false
         });
     },
+
+    handleOpen3(e) {
+        let index = e.currentTarget.dataset.index;
+        let check = e.currentTarget.dataset.check;
+        if (check) {
+            return;
+        }
+
+        this.setData({
+            visible3: true
+        });
+    },
+
+    handleClose3() {
+        this.setData({
+            visible3: false
+        });
+    },
+    handleOpen4(e) {
+        let index = e.currentTarget.dataset.index;
+        let check = e.currentTarget.dataset.check;
+        if (check) {
+            return;
+        }
+        this.setData({
+            visible4: true
+        });
+    },
+
+    handleClose4() {
+        this.setData({
+            visible4: false
+        });
+    },
+
+    handleFruitChange({ detail = {} }) {
+        console.log(detail);
+        this.setData({
+            current: detail.value
+        });
+    },
+    handleClick() {
+        this.setData({
+            position: this.data.position.indexOf('left') !== -1 ? 'right' : 'left',
+        });
+    },
+    handleDisabled() {
+        this.setData({
+            disabled: !this.data.disabled
+        });
+    },
+    handleAnimalChange({ detail = {} }) {
+        this.setData({
+            checked: detail.current
+        });
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });

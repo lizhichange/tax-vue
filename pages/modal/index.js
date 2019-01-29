@@ -3,6 +3,7 @@ const { $Message } = require('../../dist/base/index');
 Page({
     data: {
         value1: 1,
+
         fruit: [{
             id: 1,
             name: '省会、直辖市、计划单列市',
@@ -27,8 +28,10 @@ Page({
         },
 
         disabled: false,
-        title: '请选择城市类别',
-        title1: '填写赡养老人支出',
+        title1: '请选择城市类别',
+        title2: '填写赡养老人支出',
+        title7: '填写子女数量',
+
         visible1: false,
         visible2: false,
         visible3: false,
