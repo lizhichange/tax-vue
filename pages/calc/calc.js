@@ -80,6 +80,17 @@ Page({
             [amount]: val
         });
     },
+
+
+    //子女教育
+    getEducation: function (e) {
+        var amount = 'checkboxItems[' + 2 + '].amount';
+        var val = e.detail.value;
+        this.setData({
+            [amount]: val
+        });
+    },
+
     checkboxChange: function (e) {
         var checkboxItems = this.data.checkboxItems, values = e.detail.value;
         var totalAmount = 0;
@@ -127,11 +138,21 @@ Page({
         });
     },
 
-    handleClose2() {
+
+    handleOk2(e) {
         this.setData({
-            visible2: false
+            visible2: false,
         });
     },
+    handleClose2() {
+        var amount = 'checkboxItems[' + 2 + '].amount';
+        this.setData({
+            visible2: false,
+            [amount]: 0
+        });
+    },
+
+
 
     handleOpen3(e) {
         let index = e.currentTarget.dataset.index;
@@ -150,6 +171,9 @@ Page({
             visible3: false
         });
     },
+
+
+
     handleOpen4(e) {
         let index = e.currentTarget.dataset.index;
         let check = e.currentTarget.dataset.check;

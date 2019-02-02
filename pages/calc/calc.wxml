@@ -44,10 +44,10 @@
 
 
 
-<i-modal title="{{title2}}" visible="{{ visible2 }}" bind:ok="handleClose2" bind:cancel="handleClose2">
+<i-modal title="{{title2}}" visible="{{ visible2 }}" bind:ok="handleOk2" bind:cancel="handleClose2">
     <view>
            <i-cell title="">
-                <input slot="footer" type="digit" placeholder="元/月" />
+                <input slot="footer" type="number"   bindinput="getEducation"  placeholder="元/月" />
             </i-cell>
        <view>注:仅含学前教育(三岁以上),学历教育(小学至博士)</view>
     </view>
