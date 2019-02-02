@@ -54,7 +54,6 @@
 </i-modal>
 <i-modal title="{{title3}}" visible="{{ visible3 }}" bind:ok="handleClose3" bind:cancel="handleClose3">
     <view>
-
        <i-radio-group current="{{current}}" bindchange="handleFruitChange">
             <i-radio wx:for="{{fruit}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}"></i-radio>
         </i-radio-group>
@@ -62,10 +61,10 @@
 </i-modal>
 
 
-<i-modal title="{{title4}}" visible="{{ visible4 }}" bind:ok="handleClose4" bind:cancel="handleClose4">
+<i-modal title="{{title4}}" visible="{{ visible4 }}" bind:ok="handleClose4"  bind:cancel="handleClose4">
    <block wx:if="{{ switch3 }}">
             <i-cell title="">
-                <input slot="footer" type="digit" placeholder="元/月" />
+                <input slot="footer" type="text" bindinput="getElderly"  placeholder="元/月" />
             </i-cell>
         </block>
         <view>独生子女按照每月2000元标准定额扣除;非独生子女则自行协商平摊扣除金额</view>

@@ -1,28 +1,37 @@
 <view style="margin-top: 100px;">
-    <i-button bind:click="handleOpen1">房租支出</i-button>
-    <i-button bind:click="handleOpen2">赡养老人</i-button>
-    <i-button bind:click="handleOpen7">填写子女数量</i-button>
-  </view>
-<i-modal title="{{title1}}" visible="{{ visible1 }}" bind:ok="handleClose1" bind:cancel="handleClose1">
-    <view>
-        <i-radio-group current="{{current}}" bindchange="handleFruitChange">
-            <i-radio wx:for="{{fruit}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}"></i-radio>
-        </i-radio-group>
-    </view>
+    <i-button bind:click="handleOpen1">普通对话框</i-button>
+    <i-button bind:click="handleOpen2">无标题对话框</i-button>
+    <i-button bind:click="handleOpen3">自定义按钮对话框</i-button>
+    <i-button bind:click="handleOpen4">纵向按钮，自定义颜色及图标</i-button>
+    <i-button bind:click="handleOpen5">异步操作</i-button>
+</view>
+
+<i-modal title="标题" visible="{{ visible1 }}" bind:ok="handleClose1" bind:cancel="handleClose1">
+    <view>一些文本</view>
+    <view>一些文本</view>
+    <view>一些文本</view>
+    <view>一些文本</view>
+    <view>一些文本</view>
+    <view>一些文本</view>
+    <view>一些文本</view>
+    <view>一些文本</view>
+    <view>一些文本</view>
 </i-modal>
-<i-modal title="{{title2}}" visible="{{ visible2 }}" bind:ok="handleClose2" bind:cancel="handleClose2">
-    <view>
-        <block wx:if="{{ switch1 }}">
-            <i-cell title="">
-                <input slot="footer" type="digit" placeholder="元/月" />
-            </i-cell>
-        </block>
-        <view>独生子女按照每月2000元标准定额扣除;非独生子女则自行协商平摊扣除金额</view>
-    </view>
+
+<i-modal visible="{{ visible2 }}" bind:ok="handleClose2" bind:cancel="handleClose2">
+    <view>这是一个无标题的对话框</view>
 </i-modal>
-<i-modal title="{{title7}}" visible="{{ visible7 }}" bind:ok="handleClose7" bind:cancel="handleClose7">
-    <view style="padding: 16px">
-        <i-input-number value="{{ value1 }}" min="0" max="100" bindchange="handleChange7" />
-    </view>
+
+<i-modal title="支付" visible="{{ visible3 }}" actions="{{ actions3 }}" bind:click="handleClick3">
+    <view>请选择支付方式</view>
 </i-modal>
- 
+
+<i-modal title="纵向排列的按钮" visible="{{ visible4 }}" actions="{{ actions4 }}" action-mode="{{ vertical }}" bind:click="handleClick4">
+
+</i-modal>
+
+<i-modal title="删除确认" visible="{{ visible5 }}" actions="{{ actions5 }}" bind:click="handleClick5">
+    <view>删除后无法恢复哦</view>
+</i-modal>
+
+<i-message id="message" />

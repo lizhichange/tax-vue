@@ -2,8 +2,6 @@ const { $Message } = require('../../dist/base/index');
 
 Page({
     data: {
-
-
         checkboxItems: [
             {
                 name: '继续教育', summary: '学历教育',
@@ -29,7 +27,7 @@ Page({
         ],
         isAgree: false,
         deduction: 0.00,
-
+        elderly: 0,
 
         fruit: [{
             id: 1,
@@ -73,9 +71,16 @@ Page({
         wx.navigateBack({
             delta: 1
         });
-
     },
 
+    getElderly: function (e) {
+
+        var amount = 'checkboxItems['+4+'].amount';
+        var val = e.detail.value;
+        this.setData({
+            [amount]:val
+        });
+    },
     checkboxChange: function (e) {
         var checkboxItems = this.data.checkboxItems, values = e.detail.value;
         var totalAmount = 0;
@@ -118,7 +123,6 @@ Page({
         if (check) {
             return;
         }
-
         this.setData({
             visible2: true
         });
@@ -148,6 +152,7 @@ Page({
         });
     },
     handleOpen4(e) {
+
         let index = e.currentTarget.dataset.index;
         let check = e.currentTarget.dataset.check;
         if (check) {
@@ -158,7 +163,9 @@ Page({
         });
     },
 
-    handleClose4() {
+    handleClose4(e) {
+        console.log(e)
+
         this.setData({
             visible4: false
         });
@@ -185,18 +192,6 @@ Page({
             checked: detail.current
         });
     },
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 });

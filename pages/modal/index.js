@@ -2,42 +2,11 @@ const { $Message } = require('../../dist/base/index');
 
 Page({
     data: {
-        value1: 1,
-
-        fruit: [{
-            id: 1,
-            name: '省会、直辖市、计划单列市',
-        }, {
-            id: 2,
-            name: '人口大于100万城市'
-        }, {
-            id: 3,
-            name: '人口小于100万城市'
-        }],
-        current: '人口大于100万城市',
-        position: 'left',
-        animal: '熊猫',
-        checked: false,
-        switch1: true,
-
-        onChange(event) {
-            const detail = event.detail;
-            this.setData({
-                'switch1': detail.value
-            })
-        },
-
-        disabled: false,
-        title1: '请选择城市类别',
-        title2: '填写赡养老人支出',
-        title7: '填写子女数量',
-
         visible1: false,
         visible2: false,
         visible3: false,
         visible4: false,
         visible5: false,
-        visible7: false,
         actions3: [
             {
                 name: '现金支付',
@@ -76,50 +45,39 @@ Page({
         ]
     },
 
-    handleOpen1() {
+    handleOpen1 () {
         this.setData({
             visible1: true
         });
     },
 
-    handleClose1() {
+    handleClose1 () {
         this.setData({
             visible1: false
         });
     },
 
-    handleOpen2() {
+    handleOpen2 () {
         this.setData({
             visible2: true
         });
     },
 
-    handleClose2() {
+    handleClose2 () {
         this.setData({
             visible2: false
         });
     },
-    handleOpen7() {
-        this.setData({
-            visible7: true
-        });
-    },
 
-    handleClose7() {
-        this.setData({
-            visible7: false
-        });
-    },
-
-
-    handleOpen3() {
+    handleOpen3 () {
         this.setData({
             visible3: true
         });
     },
 
-    handleClick3({ detail }) {
+    handleClick3 ({ detail }) {
         const index = detail.index;
+
         if (index === 0) {
             $Message({
                 content: '点击了现金支付'
@@ -135,25 +93,25 @@ Page({
         });
     },
 
-    handleOpen4() {
+    handleOpen4 () {
         this.setData({
             visible4: true
         });
     },
 
-    handleClick4() {
+    handleClick4 () {
         this.setData({
             visible4: false
         });
     },
 
-    handleOpen5() {
+    handleOpen5 () {
         this.setData({
             visible5: true
         });
     },
 
-    handleClick5({ detail }) {
+    handleClick5 ({ detail }) {
         if (detail.index === 0) {
             this.setData({
                 visible5: false
@@ -179,28 +137,4 @@ Page({
             }, 2000);
         }
     }
-    ,
-
-    handleFruitChange({ detail = {} }) {
-        console.log(detail);
-        this.setData({
-            current: detail.value
-        });
-    },
-    handleClick() {
-        this.setData({
-            position: this.data.position.indexOf('left') !== -1 ? 'right' : 'left',
-        });
-    },
-    handleDisabled() {
-        this.setData({
-            disabled: !this.data.disabled
-        });
-    },
-    handleAnimalChange({ detail = {} }) {
-        this.setData({
-            checked: detail.current
-        });
-    },
-
 });
