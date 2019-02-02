@@ -72,13 +72,12 @@ Page({
             delta: 1
         });
     },
-
+    //赡养老人
     getElderly: function (e) {
-
-        var amount = 'checkboxItems['+4+'].amount';
+        var amount = 'checkboxItems[' + 4 + '].amount';
         var val = e.detail.value;
         this.setData({
-            [amount]:val
+            [amount]: val
         });
     },
     checkboxChange: function (e) {
@@ -152,7 +151,6 @@ Page({
         });
     },
     handleOpen4(e) {
-
         let index = e.currentTarget.dataset.index;
         let check = e.currentTarget.dataset.check;
         if (check) {
@@ -163,13 +161,20 @@ Page({
         });
     },
 
-    handleClose4(e) {
-        console.log(e)
-
+    handleOk4(e) {
         this.setData({
-            visible4: false
+            visible4: false,
         });
     },
+
+    handleClose4() {
+        var amount = 'checkboxItems[' + 4 + '].amount';
+        this.setData({
+            visible4: false,
+            [amount]: 0
+        });
+    },
+
 
     handleFruitChange({ detail = {} }) {
         console.log(detail);

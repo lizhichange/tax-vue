@@ -61,19 +61,15 @@
 </i-modal>
 
 
-<i-modal title="{{title4}}" visible="{{ visible4 }}" bind:ok="handleClose4"  bind:cancel="handleClose4">
+<i-modal title="{{title4}}" visible="{{ visible4 }}" bind:ok="handleOk4"  bind:cancel="handleClose4">
    <block wx:if="{{ switch3 }}">
             <i-cell title="">
-                <input slot="footer" type="text" bindinput="getElderly"  placeholder="元/月" />
+                <input slot="footer" type="number" bindinput="getElderly"  placeholder="元/月" />
             </i-cell>
         </block>
         <view>独生子女按照每月2000元标准定额扣除;非独生子女则自行协商平摊扣除金额</view>
 </i-modal>
  
-
-
-
-
 
     <view class="weui-btn-area">
         <button class="weui-btn" type="primary" bindtap="bindtapFix">确定</button>
