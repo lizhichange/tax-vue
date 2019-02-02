@@ -46,9 +46,8 @@
 
 <i-modal title="{{title2}}" visible="{{ visible2 }}" bind:ok="handleOk2" bind:cancel="handleClose2">
     <view>
-           <i-cell title="">
-                <input slot="footer" type="number"   bindinput="getEducation"  placeholder="元/月" />
-            </i-cell>
+  
+    <input value=""   bindinput="getEducation" type="number" title="子女数量" placeholder="" />
        <view>注:仅含学前教育(三岁以上),学历教育(小学至博士)</view>
     </view>
 </i-modal>
@@ -63,8 +62,8 @@
 
 <i-modal title="{{title4}}" visible="{{ visible4 }}" bind:ok="handleOk4"  bind:cancel="handleClose4">
    <block wx:if="{{ switch3 }}">
-            <i-cell title="">
-                <input slot="footer" type="number" bindinput="getElderly"  placeholder="元/月" />
+            <i-cell title="老人支出">
+                <input  type="number" bindinput="getElderly"  placeholder="" />
             </i-cell>
         </block>
         <view>独生子女按照每月2000元标准定额扣除;非独生子女则自行协商平摊扣除金额</view>

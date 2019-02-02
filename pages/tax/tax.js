@@ -1,9 +1,10 @@
 var base64 = require("../../dist/example/images/base64");
 var util = require('../../utils/util.js');
 
-//http://api.map.baidu.com/geocoder?location=40.047669,116.313082&output=json
 Page({
     data: {
+        list: [
+        'coordinates_fill'],
         array: [
             { code: 0.12, desc: '12%' },
             { code: 0.11, desc: '11%' },

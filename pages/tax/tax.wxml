@@ -6,8 +6,8 @@
                 <view class="weui-cell">
                     <view class="weui-cell__hd" style="position: relative;margin-right: 5px;">
                         <image src="" style="width: 10px; height:5px; display: block" />
-                        <view class="icon_sp_area">
-                            <icon type="success" size="23"></icon>
+                        <view class="icon-item"  wx:for="{{ list }}" wx:key="{{ item }}">
+                            <i-icon type="{{ item }}" size="23" color="#80848f"></i-icon>
                         </view>
                     </view>
                     <view class="weui-cell__bd positioning">
