@@ -43,10 +43,8 @@
     </label>
 
 
-
-<i-modal title="{{title2}}" visible="{{ visible2 }}" bind:ok="handleOk2" bind:cancel="handleClose2">
+<i-modal title="{{title2}}" visible="{{ visible2 }}" actions='' bind:ok="handleOk2" bind:cancel="handleClose2">
     <view>
-  
     <input value=""   bindinput="getEducation" type="number" title="子女数量" placeholder="" />
        <view>注:仅含学前教育(三岁以上),学历教育(小学至博士)</view>
     </view>
