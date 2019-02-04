@@ -75,7 +75,7 @@ Page({
     //赡养老人
     getElderly: function (e) {
         var amount = 'checkboxItems[' + 4 + '].amount';
-        var val = e.detail.value;
+        var val = parseInt(e.detail.value);
         this.setData({
             [amount]: val
         });
@@ -85,7 +85,7 @@ Page({
     //子女教育
     getEducation: function (e) {
         var amount = 'checkboxItems[' + 2 + '].amount';
-        var val = e.detail.value;
+        var val = 1000 * parseInt(e.detail.value);
         this.setData({
             [amount]: val
         });
@@ -172,6 +172,12 @@ Page({
         });
     },
 
+
+    handleOk3() {
+        this.setData({
+            visible3: false
+        });
+    },
 
 
     handleOpen4(e) {
