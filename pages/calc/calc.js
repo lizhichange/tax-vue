@@ -50,12 +50,15 @@ Page({
         fruit: [{
             id: 1,
             name: '省会、直辖市、计划单列市',
+            amount: 1500
         }, {
             id: 2,
-            name: '人口大于100万城市'
+            name: '人口大于100万城市',
+            amount: 1100
         }, {
             id: 3,
-            name: '人口小于100万城市'
+            name: '人口小于100万城市',
+            amount: 800
         }],
         current: '',
         position: 'left',
@@ -116,7 +119,7 @@ Page({
     checkboxChange: function (e) {
         var checkboxItems = this.data.checkboxItems;
         var values = e.detail.value;
-        console.log(values);
+
         var totalAmount = 0;
         for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
             checkboxItems[i].checked = false;
@@ -125,9 +128,13 @@ Page({
                     checkboxItems[i].checked = true;
                     totalAmount += checkboxItems[i].amount;
                     break;
-                } else {
-
                 }
+            }
+
+        }
+        for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
+            if (checkboxItems[i].checked == false) {
+
             }
         }
 
@@ -155,7 +162,6 @@ Page({
 
     //模式窗体,子女教育
     handleOpen2(e) {
-
         let check = e.currentTarget.dataset.check;
         if (check) {
             return;
@@ -175,8 +181,9 @@ Page({
             }
         }
         for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
-            totalAmount += checkboxItems[i].amount;
-
+            if (checkboxItems[i].checked) {
+                totalAmount += checkboxItems[i].amount;
+            }
         }
         this.setData({
             checkboxItems: checkboxItems,
@@ -216,22 +223,74 @@ Page({
             return;
         }
         this.setData({
-            visible3: true
+            visible3: true,
+            current: '',
         });
     },
 
     handleClose3() {
+        var checkboxItems = this.data.checkboxItems;
+        var totalAmount = 0;
+        for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
+            if (i == 3) {
+                checkboxItems[i].checked = false;
+                checkboxItems[i].amount = 0;
+                break;
+            } else {
+                totalAmount += checkboxItems[i].amount;
+            }
+        }
         this.setData({
-            visible3: false
+            visible3: false,
+            checkboxItems: checkboxItems,
+            current: '',
         });
     },
 
 
     handleOk3() {
+
+        var checkboxItems = this.data.checkboxItems;
+        var totalAmount = 0;
+        for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
+            if (i == 3) {
+                checkboxItems[i].checked = true;
+                break;
+            }
+        }
+        for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
+            if (checkboxItems[i].checked) {
+                totalAmount += checkboxItems[i].amount;
+            }
+        }
+
         this.setData({
-            visible3: false
+            checkboxItems: checkboxItems,
+            visible3: false,
+            deduction: totalAmount,
+
+        });
+
+    },
+    //下拉确认
+    handleFruitChange({
+        detail = {}
+    }) {
+        var fruit = this.data.fruit;
+        var item;
+        for (var i = 0, lenI = fruit.length; i < lenI; ++i) {
+            if (fruit[i].name === detail.value) {
+                item = fruit[i];
+                break;
+            }
+        }
+        var amount = 'checkboxItems[' + 3 + '].amount';
+        this.setData({
+            current: detail.value,
+            [amount]: item.amount
         });
     },
+
 
     //打开模式窗体 
     handleOpen4(e) {
@@ -247,45 +306,49 @@ Page({
     },
     //确认数据
     handleOk4(e) {
+        var checkboxItems = this.data.checkboxItems;
+        var totalAmount = 0;
+        for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
+            if (i == 4) {
+                checkboxItems[i].checked = true;
+                break;
+            }
+        }
+        for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
+            if (checkboxItems[i].checked) {
+                totalAmount += checkboxItems[i].amount;
+            }
+        }
         this.setData({
+            checkboxItems: checkboxItems,
             visible4: false,
+            deduction: totalAmount,
+            input4: ''
         });
     },
     //取消数据
     handleClose4() {
-        var amount = 'checkboxItems[' + 4 + '].amount';
+
+        var checkboxItems = this.data.checkboxItems;
+        var totalAmount = 0;
+        for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
+            if (i == 4) {
+                checkboxItems[i].checked = false;
+                checkboxItems[i].amount = 0;
+                break;
+            } else {
+                totalAmount += checkboxItems[i].amount;
+            }
+        }
+
         this.setData({
             visible4: false,
-            [amount]: 0
+            checkboxItems: checkboxItems,
+            input4: '',
         });
+
     },
 
-
-    handleFruitChange({
-        detail = {}
-    }) {
-        console.log(detail);
-        this.setData({
-            current: detail.value
-        });
-    },
-    handleClick() {
-        this.setData({
-            position: this.data.position.indexOf('left') !== -1 ? 'right' : 'left',
-        });
-    },
-    handleDisabled() {
-        this.setData({
-            disabled: !this.data.disabled
-        });
-    },
-    handleAnimalChange({
-        detail = {}
-    }) {
-        this.setData({
-            checked: detail.current
-        });
-    },
 
 
 });
