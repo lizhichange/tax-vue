@@ -131,13 +131,14 @@ Page({
                 }
             }
 
+
         }
         for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
-            if (checkboxItems[i].checked == false) {
+            if (checkboxItems[i].checked == false && (i == 2 || i == 3 | i == 4)) {
+                checkboxItems[i].amount = 0;
 
             }
         }
-
         this.setData({
             checkboxItems: checkboxItems,
             deduction: totalAmount
