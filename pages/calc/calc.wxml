@@ -19,9 +19,7 @@
     <view class="weui-cells weui-cells_after-title">
         <view>
             <checkbox-group bindchange="checkboxChange">
-                <label class="weui-cell weui-check__label" wx:for-index="idx" wx:for="{{checkboxItems}}" wx:key="box" 
-                data-check="{{item.checked}}" data-index="{{idx}}"
-               bindtap="{{idx ===2 || idx ===3 || idx ===4  ?  'handleOpen'+idx:  ''}}">
+                <label class="weui-cell weui-check__label" wx:for-index="idx" wx:for="{{checkboxItems}}" wx:key="box" data-check="{{item.checked}}" data-index="{{idx}}" bindtap="{{idx ===2 || idx ===3 || idx ===4  ?  'handleOpen'+idx:  ''}}">
                     <checkbox class="weui-check" data-amount='{{item.amount}}' data-check="{{item.checked}}" id="box-{{idx}}" value="{{item.value}}" checked="{{item.checked}}" />
                     <view class="weui-cell__hd weui-check__hd_in-checkbox">
                         <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
@@ -41,33 +39,27 @@
             <view>注:执业资格教育和大病医疗属于按年扣除的附件专项,此处暂时不计算</view>
         </view>
     </label>
-
-
-<i-modal title="{{title2}}" visible="{{ visible2 }}" actions='' bind:ok="handleOk2" bind:cancel="handleClose2">
-    <view>
-    <input value=""   bindinput="getEducation" type="number" title="子女数量" placeholder="" />
-       <view>注:仅含学前教育(三岁以上),学历教育(小学至博士)</view>
-    </view>
-</i-modal>
-<i-modal title="{{title3}}" visible="{{ visible3 }}" bind:ok="handleOk3" bind:cancel="handleClose3">
-    <view>
-       <i-radio-group current="{{current}}" bindchange="handleFruitChange">
-            <i-radio wx:for="{{fruit}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}"></i-radio>
-        </i-radio-group>
-    </view>
-</i-modal>
-
-
-<i-modal title="{{title4}}" visible="{{ visible4 }}" bind:ok="handleOk4"  bind:cancel="handleClose4">
-   <block wx:if="{{ switch3 }}">
+    <i-modal title="{{title2}}" visible="{{ visible2 }}" actions='' bind:ok="handleOk2" bind:cancel="handleClose2">
+        <view>
+            <input value="{{ input2 }}" bindinput="getEducation" type="number" title="子女数量" placeholder="" />
+            <view>注:仅含学前教育(三岁以上),学历教育(小学至博士)</view>
+        </view>
+    </i-modal>
+    <i-modal title="{{title3}}" visible="{{ visible3 }}" bind:ok="handleOk3" bind:cancel="handleClose3">
+        <view>
+            <i-radio-group current="{{current}}" bindchange="handleFruitChange">
+                <i-radio wx:for="{{fruit}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}"></i-radio>
+            </i-radio-group>
+        </view>
+    </i-modal>
+    <i-modal title="{{title4}}" visible="{{ visible4 }}" bind:ok="handleOk4" bind:cancel="handleClose4">
+        <block wx:if="{{ switch3 }}">
             <i-cell title="老人支出">
-                <input  type="number" bindinput="getElderly"  placeholder="" />
+                <input type="number" value="{{ input4 }}" bindinput="getElderly" placeholder="" />
             </i-cell>
         </block>
         <view>独生子女按照每月2000元标准定额扣除;非独生子女则自行协商平摊扣除金额</view>
-</i-modal>
- 
-
+    </i-modal>
     <view class="weui-btn-area">
         <button class="weui-btn" type="primary" bindtap="bindtapFix">确定</button>
     </view>
